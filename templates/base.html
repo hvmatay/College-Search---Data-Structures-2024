@@ -1,59 +1,49 @@
 <!DOCTYPE html>
-
 <html lang="en">
-	<head><div class="sidenav">
-			<a href="/">Reset</a>
-			<a href="#">Search</a>
-			<form method="post" action="/">
-				<input type="text" id="search" name="search"></input>
-				<button type="submit">Submit</button>
-			</form>
-				
-
-				<form method="post" action="/">
-					<b><label for="state">State:</label></b>
-						<select id="state" name ="state">
-							{{ states | safe }}
-						</select>
-
-						<b><label for="surrounding">Surroundings:</label></b>
-						<select id="surrounding" name="surrounding">
-							{{ surroundings | safe }}
-						</select>
-
-					<b><br><label for="surrounding">Min SAT:</label></b>
-							<input type="range" step="50" min="400" max="1600" value="400" class="slider" id="slider" name="sat_slider">
-							<b><span id="boom"></span></b>
-							<script>
-								var slider = document.getElementById("slider");
-								var output = document.getElementById("boom");
-								output.innerHTML = slider.value;
-								
-								slider.oninput = function() {
-								  output.innerHTML = this.value;
-								}
-								</script>
-							</br>
-						
-						<button type="submit">Submit</button>
-
-				</form>
-
-		  </div>
-		<link href="/static/styles.css" rel="stylesheet">
-		<title>College Search</title>
-	</head>
-	<body>
-	  <div class="header">
-		  <a href="/"><img src="/static/u.png" width="200" height="200"></a>
-			<h1>SA College Search</h1>
-		</div>
-	  <div class="container">
-			
-		  {% block content %} {% endblock %}
-
-
-		  
-			</div>
-	</body>
+<head>
+    <link href="/static/styles.css" rel="stylesheet">
+    <title>College Search</title>
+</head>
+<body>
+    <div class="header">
+        <a href="/"><img src="/static/u.png" width="200" height="200"></a>
+        <h1>SA College Search</h1>
+    </div>
+    <div class="container">
+        <div class="sidenav">
+            <a href="/">Reset</a>
+            <a href="#">Search</a>
+            <form method="post" action="/">
+                <input type="text" id="search" name="search">
+                <button type="submit">Submit</button>
+            </form>
+            <form method="post" action="/">
+                <b><label for="state">State:</label></b>
+                <select id="state" name="state">
+                    {{ states | safe }}
+                </select>
+                <b><label for="surrounding">Surroundings:</label></b>
+                <select id="surrounding" name="surrounding">
+                    {{ surroundings | safe }}
+                </select>
+                <b><br><label for="surrounding">Min SAT:</label></b>
+                <input type="range" step="50" min="400" max="1600" value="400" class="slider" id="slider" name="sat_slider">
+                <b><span id="boom"></span></b>
+                <script>
+                    var slider = document.getElementById("slider");
+                    var output = document.getElementById("boom");
+                    output.innerHTML = slider.value;
+                    
+                    slider.oninput = function() {
+                      output.innerHTML = this.value;
+                    }
+                </script>
+                </br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
 </html>

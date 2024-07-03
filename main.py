@@ -9,7 +9,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.route("/", methods=["GET", "POST"])
 def main():
-
+	
 	where_sql = ""
 	name_sql = ""
 	selected_state = ""
