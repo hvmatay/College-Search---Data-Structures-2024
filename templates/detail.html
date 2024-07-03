@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Type of Tuition', 'Tuition Cost', { role: 'style' }],
+          ['In-State Tuition', {{ college["TUITIONFEE_IN"] }}, 'color: #50bf5a'],
+          ['Out-of-State Tuition', {{ college["TUITIONFEE_OUT"] }}, 'color: #e8665a']
+        ]);
+
+        var options = {
+          title: 'Tuition',
+          bars: 'vertical',
+          backgroundColor: 'transparent',
+          bar: {groupWidth: "80%"},
+          chartArea: {backgroundColor: 'transparent'}
+        };
+        
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+<!-- display college info -->
+<h2>{{ college["INSTNM"] }}</h2>
+<table>
+<tr><td><strong>Website:</strong> <a href='//{{college["INSTURL"]}}'>{{ college["INSTURL"] }}</a></td></tr>
+<tr><td><strong>Address:</strong> {{ college["CITY"] }}, {{ college["STABBR"] }} {{college["ZIP"]}} </td></tr>
+<tr><td><strong>Admission Rate:</strong> {{ college["ADM_RATE"] }}</td></tr>
+<tr><td><strong>Average SAT:</strong> {{ college["SAT_AVG"] }}</td>	</tr>
+<tr><td><strong>In-state Tuition:</strong> {{ college["TUITIONFEE_IN"] }}</td></tr>
+<tr><td><strong>Out-of-state Tuition:</strong> {{ college["TUITIONFEE_OUT"] }}</td></tr>
+<tr><td><strong>Undergraduate Number of Students:</strong> {{ college["UGDS"] }}</td></tr>
+<tr><td><div class="chart-container">
+  <div id="barchart_material" style="width: 500px; height: 500px;"></div>
+  </div></td></tr>
+</table>
+
+<!-- map -->
+<br></br>
+<h3>Location</h3>
+<div class="map-container">
+  <iframe
+	width="500"
+	height="350"
+	frameborder="0"
+	style="border:0"
+	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBR5RY-Y3sGcCacuN8Xy1auBDne78xjQVo&q={{college['LATITUDE']}},{{college['LONGITUDE']}}"
+	allowfullscreen>
+  </iframe>
+</div>
+
+{% endblock %}

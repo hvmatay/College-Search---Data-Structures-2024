@@ -1,0 +1,132 @@
+body {
+	background-color: #eeeeee;
+	color: #002e7a;
+	font-size: 1rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	line-height: 1.5;
+	margin: 0;
+	text-align: left;
+	overflow-x: hidden;
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 150px;
+	padding-right: 15px;
+	text-align: center;
+	width: 90%;
+	overflow-x: hidden;
+}
+
+.header img {
+	margin-top: 20px;
+  float: left;
+  width: 75px;
+  height: auto;
+  position: fixed;
+
+}
+
+.header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 27px;
+  position: relative;
+  left: 90px;
+  position: fixed;
+  margin-top: 3.4rem;
+}
+.header {
+	background-color: #eeeeee;
+	color:#1a7298;
+	text-align: left;
+	margin-left: 1rem;
+	position: fixed;
+}
+
+table {
+	background-color: #c9ced8;
+	margin-top: 3.4rem;
+	margin-bottom: 1rem;
+	margin-left: 12rem;
+	overflow-x: hidden;
+	padding-top: 10px;
+	padding-right: 50px;
+	padding-left: 30px;
+	padding-bottom: 10px;
+	border-radius: 10px;
+	box-shadow: 5px 10px 5px grey
+	
+}
+table tr:nth-child(even) {
+	background-color: #b7c3d9;
+}
+
+table th,
+table td {
+	vertical-align: middle;
+	margin-left: 400px;
+	margin-top: 500px;
+	text-align: left;
+}
+
+.map-container {
+  height: 260px;
+  width: 260px;
+  margin-left: 200px;
+  margin-top: 50px;
+}
+
+.chart-container {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	background-color: #d5deed;
+	border-radius: 5px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.sidenav {
+	height: 67%;
+	width: 270px; 
+	position: fixed; 
+	background-color: #c9ced8; 
+	overflow-x: hidden;
+	margin-top: 6.9rem;
+	margin-left:1.5rem;
+	padding-top: 20px;
+	padding-left: 20px;
+	border-radius: 10px;
+	box-shadow: 5px 10px 5px grey
+  }
+  
+  /* nav menu links */
+  .sidenav a {
+	padding-top: 5px;
+	padding-left: 5px;
+	text-decoration: none;
+	font-size: 27px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 25px;
+	color: #002e7a;
+	display: block;
+  }
+
+  .sidenav a:hover {
+	color: #f1f1f1;
+  }
+  
+  .main {
+	margin-left: 200px; 
+	padding: 0px 10px;
+  }
+
+  @media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+  }
